@@ -1,6 +1,10 @@
-import { _isAList } from './utils';
+import { _hasFrontmatter, _isAList } from './utils';
 
 export const split = (input: string): (string[] | string)[] => {
+  if (_hasFrontmatter(input)) {
+    throw new Error('Frontmatter not supported');
+  }
+
   const segments = input.split('\n\n');
 
   const subDivided = segments.map(segment => {

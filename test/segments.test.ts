@@ -1,5 +1,6 @@
 import { split } from '../src';
 
+const frontmatter = `---\nfoo: bar\n---`;
 const heading = `# A heading`;
 const para1 = `Followed by some text`;
 const para2 = `And a second paragraph\nwith some line breaks`;
@@ -51,5 +52,9 @@ describe('split segments', () => {
     expect(
       split(`${item1}\n${nestedAltItem1}\n${nestedAltItem2}\n${item2}`)
     ).toEqual([[`${item1}\n${nestedAltItem1}\n${nestedAltItem2}`, item2]]);
+  });
+
+  it('#D6lCKB throws on frontmatter', () => {
+    expect(() => split(`${frontmatter}\n${heading}\n${para1}`)).toThrowError();
   });
 });

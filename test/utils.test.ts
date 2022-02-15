@@ -1,4 +1,4 @@
-import { _isAList, _isAListItem } from '../src/utils';
+import { _hasFrontmatter, _isAList, _isAListItem } from '../src/utils';
 
 const item1 = `- A list item`;
 const item2 = `- Another list item`;
@@ -32,6 +32,16 @@ describe('utils', () => {
 
     it('#wisTQu returns false for a nested list', () => {
       expect(_isAList(`${nestedItem1}\n${nestedItem2}`)).toEqual(false);
+    });
+  });
+
+  describe('_hasFrontmatter()', () => {
+    it('#iz3vrn Returns true for a string with frontmatter', () => {
+      expect(_hasFrontmatter(`---\nfoo:bar\n---\n#A heading`)).toEqual(true);
+    });
+
+    it('#7Qwcuz returns false for a string without frontmatter', () => {
+      expect(_hasFrontmatter(`${item1}\n${item2}`)).toEqual(false);
     });
   });
 });
