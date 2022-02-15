@@ -1,6 +1,4 @@
-export const sum = (a: number, b: number) => {
-  if ('development' === process.env.NODE_ENV) {
-    console.log('boop');
-  }
-  return a + b;
+export const split = (input: string): (string[] | string)[] => {
+  const segments = input.split('\n\n');
+  return segments;
 };
