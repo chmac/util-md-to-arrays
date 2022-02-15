@@ -7,6 +7,10 @@ const item1 = '- A list item';
 const item2 = '- Another list item';
 const nestedItem1 = '  - A nested item';
 const nestedItem2 = '  - Another nested item';
+const altItem1 = '* A star list item';
+const altItem2 = '* Another star list item';
+const nestedAltItem1 = '  * A star nested item';
+const nestedAltItem2 = '  * Another star nested item';
 
 describe('split segments', () => {
   it('#dBcLtk splits simple segments', () => {
@@ -34,5 +38,18 @@ describe('split segments', () => {
       para1,
       [`${item1}\n${nestedItem1}\n${nestedItem2}`, item2],
     ]);
+  });
+
+  it('#XmtgDo splits star lists into nested arrays', () => {
+    expect(split(`${heading}\n\n${altItem1}\n${altItem2}`)).toEqual([
+      heading,
+      [altItem1, altItem2],
+    ]);
+  });
+
+  it('#0szgbC does not split nested star lists into nested arrays', () => {
+    expect(
+      split(`${item1}\n${nestedAltItem1}\n${nestedAltItem2}\n${item2}`)
+    ).toEqual([[`${item1}\n${nestedAltItem1}\n${nestedAltItem2}`, item2]]);
   });
 });
