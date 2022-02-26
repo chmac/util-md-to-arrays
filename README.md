@@ -15,10 +15,10 @@ This utility will return an array like:
 
 ```javascript
 [
-  'A paragraph',
+  `A paragraph`,
   [
-    '- Item 1\n  - Item 1.1\n  - Item 1.2',
-    '- Item 2',
+    `- Item 1\n  - Item 1.1\n  - Item 1.2`,
+    `- Item 2`,
   ]
 ]
 ```
