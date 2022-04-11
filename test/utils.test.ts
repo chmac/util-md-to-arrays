@@ -1,4 +1,4 @@
-import { _hasFrontmatter, _isAList, _isAListItem } from '../src/utils';
+import { _hasFrontmatter, _isAList, _isAListItem } from '../src/';
 
 const item1 = `- A list item`;
 const item2 = `- Another list item`;

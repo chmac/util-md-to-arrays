@@ -1,4 +1,29 @@
-import { _hasFrontmatter, _isAList } from './utils';
+// NOTE: Keeping all functions in a single file for now so this module can be
+// easily used by deno without any transpiling.
+
+export const _isAList = (input: string): boolean => {
+  if (input.startsWith('- ')) {
+    return true;
+  }
+  if (input.startsWith('* ')) {
+    return true;
+  }
+  return false;
+};
+
+export const _isAListItem = (input: string): boolean => {
+  const trimmed = input.trimStart();
+  return _isAList(trimmed);
+};
+
+export const _hasFrontmatter = (input: string): boolean => {
+  if (!input.startsWith('---\n')) {
+    return false;
+  }
+
+  // Some better test...
+  return true;
+};
 
 export const split = (input: string): (string[] | string)[] => {
   if (_hasFrontmatter(input)) {
