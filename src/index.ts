@@ -47,7 +47,7 @@ export const split = (input: string): (string[] | string)[] => {
         throw new Error('#Twnv2o Unexpected logic error');
       }
 
-      const head = acc.splice(0, length - 1);
+      const head = acc.slice(0, -1);
       const last = acc[length - 1];
       const lastAndCurrent = `${last}\n${line}`;
       return head.concat(lastAndCurrent);
