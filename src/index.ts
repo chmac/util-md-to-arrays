@@ -30,6 +30,8 @@ export const split = (input: string): (string[] | string)[] => {
     throw new Error('Frontmatter not supported');
   }
 
+  // Split the full markdown into segments
+  // TODO - This doesn't work for headings immediately followed by text
   const segments = input.split('\n\n');
 
   const subDivided = segments.map(segment => {
